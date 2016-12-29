@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-12-23T15:56:30 -->
+<!-- 2016-12-29T15:26:46 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ficha_personal" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cb7d6648-e5f9-4286-89b4-cc1e04678803">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rrhhDAxml.xml"/>
@@ -116,6 +116,33 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="Table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="dsFamiliares" uuid="26dc4259-2fb8-42b1-af8c-dd136d0f1287">
 		<property name="com.jaspersoft.studio.data.sql.tables" value="cGVyc29uYWxfZ3JhZG9wYXJlbnRlc2NvIEFTICwzNTUsNjAsN2MxYTBjN2ItYTQ0Zi00ODk2LThh&#xA;MTktODU1YjU3YmY5YzVlO3BlcnNvbmFsX3RpcG9kb2N1bWVudG8gQVMgLDM3MiwzNzcsMmMzMGEy&#xA;ZDAtN2YzMC00NmFmLTk2ZWItNzcwMTdjMmI1NTYxO3BlcnNvbmFsX3JlbGFjaW9uZmFtaWxpYXIg&#xA;QVMgLDExMCw3Nyw1YjgzNDhlYy1lNzU2LTQ1NzEtYmM2ZS0zNTA3YjQyM2I1N2U7"/>
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rrhhDAxml.xml"/>
@@ -222,6 +249,36 @@ WHERE personal_experienciaacademica.nivel_academico_id = 4]]>
 		<field name="fecha_fin" class="java.sql.Date"/>
 		<field name="horas_academicas" class="java.lang.Integer"/>
 	</subDataset>
+	<subDataset name="DS" uuid="d0df0e72-9fa4-4f0c-859b-155699345f26">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="dsSegurosMedicos" uuid="f1bdca17-b256-47b1-bf1b-a31136765716">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rrhhDAxml.xml"/>
+		<parameter name="P_CI" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<queryString language="SQL">
+			<![CDATA[SELECT personal_seguromedico.numero_seguro,
+	personal_seguromedico.tipo_seguro,
+	personal_seguromedico.estado,
+	personal_seguromedico.fecha_seguro,
+	personal_seguromedico.observaciones,
+	personal_seguromedico.entidad_afiliacion
+FROM personal_seguromedico
+WHERE personal_seguromedico.persona_id =  $P{P_CI} 
+AND personal_seguromedico.fecha_eliminacion IS NULL]]>
+		</queryString>
+		<field name="tipo_seguro" class="java.lang.String"/>
+		<field name="entidad_afiliacion" class="java.lang.String"/>
+		<field name="fecha_seguro" class="java.sql.Date"/>
+		<field name="numero_seguro" class="java.lang.String"/>
+		<field name="estado" class="java.lang.String"/>
+		<field name="observaciones" class="java.lang.String"/>
+	</subDataset>
 	<parameter name="CI_PERSONA" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT ci, apellido_paterno, apellido_materno, apellido_casada, nombres,
@@ -248,7 +305,7 @@ WHERE ci =  $P{CI_PERSONA}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="92" splitType="Stretch">
+		<band height="76" splitType="Stretch">
 			<textField>
 				<reportElement positionType="Float" x="120" y="0" width="350" height="30" forecolor="#0F21BF" uuid="603e8407-5f7b-4e94-8ff2-d6de7f99ed96"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -289,7 +346,7 @@ WHERE ci =  $P{CI_PERSONA}]]>
 		</band>
 	</title>
 	<detail>
-		<band height="413" splitType="Stretch">
+		<band height="480" splitType="Stretch">
 			<textField>
 				<reportElement style="mopsv" x="130" y="34" width="100" height="14" uuid="18d3bae0-146d-4e22-a21b-250304d524ae">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -1247,6 +1304,156 @@ WHERE ci =  $P{CI_PERSONA}]]>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 			</line>
+			<line>
+				<reportElement positionType="Float" x="1" y="419" width="570" height="1" forecolor="#A06746" uuid="f66ce5d3-be88-4f00-a908-d6dd76979542">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement key="" positionType="Float" x="7" y="399" width="452" height="19" forecolor="#4F5273" backcolor="#BFE1FF" uuid="6dd4955b-4010-495c-bc61-c5e4170c6c1a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E.1.- SEGUROS MÉDICOS]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="0" y="421" width="572" height="49" uuid="0510c7f5-a6ce-4a41-8f48-4b90d2bb94e9">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 4_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 4_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 4_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsSegurosMedicos" uuid="9627c740-2431-4495-8566-5d66626f8da7">
+						<datasetParameter name="P_CI">
+							<datasetParameterExpression><![CDATA[$F{ci}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="96" uuid="6a4924a1-6911-48a0-91c8-168e2bd6ae95">
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="96" height="20" uuid="1ea49631-f16b-4475-9230-8754a742cb09"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TIPO SEGURO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="96" height="20" uuid="bc07401f-0172-4846-83ba-85b3efa3b79f"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipo_seguro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="134" uuid="779f36df-8114-4bbb-b058-12f5d1efdbc4">
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="134" height="20" uuid="75e6451a-f62c-4bf2-9a5b-1d04717d2aaa"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ENTIDAD AFILICACION]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="134" height="20" uuid="43fbd056-9a23-4c47-b2b8-5c1768ee31a9"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{entidad_afiliacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="8a7e0be9-e1e2-4b43-b641-91af024ac07a">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="20" uuid="dd2cd0b4-aee0-4fe2-af5e-36b09fa4e963"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[FECHA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField pattern="dd/MM/yyyy">
+								<reportElement x="0" y="0" width="50" height="20" uuid="f3b82896-d578-4ef3-a9f9-42c773a3e77c"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{fecha_seguro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="4fff4e73-30f6-48d8-98c8-f44192045fe8">
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="20" uuid="17cdaae5-957f-443f-94eb-810618b81be8"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NRO. SEGURO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="20" uuid="7b9f4829-a2cb-4b07-99cc-93f9eacb6b8b"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{numero_seguro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="ff1277da-51d3-4c4c-a764-cd650c21848d">
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="20" uuid="740b778d-ec1b-4176-b866-79ca1b49f482"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ESTADO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="20" uuid="b0b1b230-296e-4271-9731-a260565e36af"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="327b080e-9109-4daa-823e-f2f325194786">
+						<jr:columnHeader style="Table 4_CH" height="20">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="20" uuid="05b5b091-156e-4810-b273-d1cc15390d22"/>
+								<textElement textAlignment="Center">
+									<font size="7" isBold="true"/>
+								</textElement>
+								<text><![CDATA[OBSERVACIONES]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table 4_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="20" uuid="9a5b97fd-c089-4786-a7f4-045244e97c16"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
 		</band>
 	</detail>
 	<pageFooter>
