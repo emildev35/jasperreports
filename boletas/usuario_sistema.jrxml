@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-12-29T20:34:49 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="usuario_sistema" pageWidth="612" pageHeight="792" columnWidth="486" leftMargin="70" rightMargin="56" topMargin="14" bottomMargin="28" uuid="60264caf-2239-469d-bc0e-9eb99ad8188b">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rrhhDAxml.xml"/>
+	<parameter name="P_FILTER" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT seguridad_usuario.id,
+	seguridad_usuario.password,
+	seguridad_usuario.last_login,
+	seguridad_usuario.is_superuser,
+	seguridad_usuario.username
+FROM seguridad_usuario
+]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="password" class="java.lang.String"/>
+	<field name="last_login" class="java.sql.Timestamp"/>
+	<field name="is_superuser" class="java.lang.Boolean"/>
+	<field name="username" class="java.lang.String"/>
+	<background>
+		<band height="736">
+			<image>
+				<reportElement mode="Transparent" x="60" y="171" width="420" height="450" uuid="ab118081-de86-4dfb-8041-a78185d7ca6e"/>
+				<imageExpression><![CDATA["mopsv_fondo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<image>
+				<reportElement positionType="Float" x="1" y="1" width="50" height="50" uuid="137b653c-54fc-45f7-90c7-ded48537c886"/>
+				<imageExpression><![CDATA["EscudoBolivia.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement positionType="Float" x="441" y="2" width="43" height="45" uuid="d8ba65d6-1b55-4554-a83c-8669b3b1c07d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["LogoMopsv.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="9" width="389" height="15" forecolor="#4F81BD" uuid="890bdacb-7293-46fa-8b80-10a5f8932048"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[ESTADO PLURINACIONAL DE BOLIVIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="20" width="389" height="15" forecolor="#4F81BD" uuid="51da14a6-88a9-49a2-b05b-7a309de6af9e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE OBRAS PÚBLICAS, SERVICIO Y VIVIENDA]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="98" y="33" width="289" height="1" uuid="377cad5c-795e-4dad-bc05-cb3cb6cefe18">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50">
+			<staticText>
+				<reportElement x="1" y="20" width="100" height="30" uuid="68f9efbb-efdc-4540-81c8-7852f846308a"/>
+				<text><![CDATA[Label]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="97" height="30" uuid="1d955bc8-326b-480a-a201-2caafa0dd28a"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="0" width="97" height="30" uuid="19d1551c-1f39-47f2-a74d-7f19b1dac33e"/>
+				<text><![CDATA[password]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="0" width="97" height="30" uuid="5915290c-476d-48de-a4a6-b0c4455c6283"/>
+				<text><![CDATA[last_login]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="0" width="97" height="30" uuid="f59aa23a-0f4c-4538-bbaa-28e64a9186c8"/>
+				<text><![CDATA[is_superuser]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="0" width="97" height="30" uuid="d732ba1b-cb2e-4244-908e-89c5c716059c"/>
+				<text><![CDATA[username]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="97" height="30" uuid="7f57b9b0-79c5-4f1d-a0e4-5917f3014d1a"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="0" width="97" height="30" uuid="77b51a50-3375-44dd-af0b-86aa260304dc"/>
+				<textFieldExpression><![CDATA[$F{password}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="0" width="97" height="30" uuid="61946475-95bd-4f1f-bf93-be5c4c75291d"/>
+				<textFieldExpression><![CDATA[$F{last_login}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="0" width="97" height="30" uuid="f6c8f910-2b8d-4766-b720-8be9ddd3bb23"/>
+				<textFieldExpression><![CDATA[$F{is_superuser}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="97" height="30" uuid="59dd2c8f-159f-467b-8d1d-a58783a3bd5b"/>
+				<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<image>
+				<reportElement positionType="Float" x="0" y="10" width="486" height="3" uuid="b1b6ae18-ba11-4493-a317-d7ed86a55c2a"/>
+				<imageExpression><![CDATA["banda_reporte.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="102" y="13" width="299" height="10" forecolor="#4F81BD" uuid="8d8f7627-02e6-4c71-88ab-9bb5100b9a10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[www.oopp.gob.bo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="23" width="486" height="10" forecolor="#4F81BD" uuid="2779fd7b-a03f-451b-b7e5-50328484c834"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Av. Mariscal Santa Cruz, Esq. Calle Oruro, Edif. Centro de Comunicaciones La Paz, 5º piso, teléfonos: (591) -2- 2119999 – 2156600]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="60" height="10" uuid="701882bd-9ccd-4807-90d9-2caf14e0229b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
 encoding//boletas/boletas_personales.jrxml=UTF-8
+encoding//boletas/usuario_sistema.jrxml=UTF-8
+encoding//marcaciones/personal.jrxml=UTF-8
+encoding//marcaciones/sr_marcado_diario.jrxml=UTF-8
+encoding//marcaciones/sr_marcados_diarios.jrxml=UTF-8
 encoding//personal/ficha_personal.jrxml=UTF-8
 encoding//templates/base_mopsv.jrxml=UTF-8

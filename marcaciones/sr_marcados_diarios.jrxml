@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-01-26T18:06:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sr_marcados_diarios" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1af17867-3bea-4d76-b928-8bb805b65fe6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="hadesDataAdapter"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT x.* 
+FROM  JSON_TO_RECORD(((
+     '{
+       "2016-11-03": {
+         "minutos_retrazo": 16,
+         "abandono": false,
+         "ausencia": false,
+         "marcados": [
+           {
+             "observacion_salida": null,
+             "ingreso_teorico": "08:30:00",
+             "salida": "12:34:57",
+             "tipo_salida": "MEB",
+             "tipo_ingreso": "MEB",
+             "minutos_retrazo": 12,
+             "salida_teorica": "12:30:00",
+             "horario_id": 1,
+             "abandono": false,
+             "observacion_ingreso": null,
+             "ausencia": false,
+             "ingreso": "08:42:01",
+             "horas_trabajadas": 3.87
+           },
+           {
+             "observacion_salida": null,
+             "ingreso_teorico": "14:30:00",
+             "salida": "18:49:59",
+             "tipo_salida": "MEB",
+             "tipo_ingreso": "MEB",
+             "minutos_retrazo": 4,
+             "salida_teorica": "18:30:00",
+             "horario_id": 2,
+             "abandono": false,
+             "observacion_ingreso": null,
+             "ausencia": false,
+             "ingreso": "14:34:45",
+             "horas_trabajadas": 4.25
+           }
+         ],
+         "horas_trabajadas": 8.120000000000001
+       }
+     }' :: JSON
+  ) ->> '2016-11-03')::JSON) AS X (
+  minutos_retrazo DECIMAL(5, 2),
+  abandono BOOLEAN,
+  ausencia BOOLEAN,
+  horas_trabajadas DECIMAL(5, 2),
+  marcados TEXT
+);]]>
+	</queryString>
+	<field name="minutos_retrazo" class="java.math.BigDecimal"/>
+	<field name="abandono" class="java.lang.Boolean"/>
+	<field name="ausencia" class="java.lang.Boolean"/>
+	<field name="horas_trabajadas" class="java.math.BigDecimal"/>
+	<field name="marcados" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="20" width="100" height="20" uuid="b5f50b19-5eb2-4b22-8f6a-893f6262d2d9"/>
+				<textFieldExpression><![CDATA[$F{horas_trabajadas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="20" width="100" height="20" uuid="cb7d1353-ca07-4729-a969-edefa1d3a281"/>
+				<text><![CDATA[horas_trabajadas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="40" width="100" height="22" uuid="bbfebb5d-c73f-4bef-9b40-56501ee1009b"/>
+				<textFieldExpression><![CDATA[$F{minutos_retrazo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="22" uuid="aa361017-a9e7-4cb6-9ece-2bfe337bd772"/>
+				<text><![CDATA[minutos_retrazo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="23" width="100" height="15" uuid="5d4b4e7b-8428-46e9-99c9-dedc208a64ef"/>
+				<textFieldExpression><![CDATA[$F{abandono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="23" width="100" height="15" uuid="1f7206c0-0d62-4f62-8921-fb6a062033ea"/>
+				<text><![CDATA[abandono]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="40" width="100" height="23" uuid="61b275f8-2548-4ff6-b9ae-cee15e70df91"/>
+				<textFieldExpression><![CDATA[$F{ausencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="40" width="100" height="23" uuid="bfdb5402-6ed6-40c3-b348-a82698f4be25"/>
+				<text><![CDATA[ausencia]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
